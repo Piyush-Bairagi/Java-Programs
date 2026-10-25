@@ -1,5 +1,7 @@
 package programs.core;
 
+import java.util.*;
+
 public class FindSmallestNumberFromIntegerArray {
 
     public static void main(String[] args) {
@@ -13,5 +15,13 @@ public class FindSmallestNumberFromIntegerArray {
         }
 
         System.out.println("Smallest number: " + smallestNumber);
+
+        // another logic
+        Set<Integer> set = new TreeSet<>();
+        for (int num : arr)
+            set.add(num);
+
+        List<Integer> list = new ArrayList<>(set);
+        System.out.println("Smallest Number using ArrayList and TreeSet: " + list.get(0));
     }
 }
