@@ -1,7 +1,6 @@
 package programs.core;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class FindDuplicateNumbersInArray {
     public static void main(String[] args) {
@@ -13,9 +12,16 @@ public class FindDuplicateNumbersInArray {
             map.put(item, map.getOrDefault(item, 0) + 1);
         }
 
+        List<Integer> duplicates = new ArrayList<>();
+        int index = 0;
+
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > 1)
-                System.out.println(entry.getKey() + ": " + entry.getValue());
+            if (entry.getValue() > 1) {
+                duplicates.add(entry.getKey());
+                index++;
+            }
         }
+
+        System.out.println(duplicates);
     }
 }
